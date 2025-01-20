@@ -1,27 +1,22 @@
 var builder = WebApplication.CreateBuilder(args);
-
-builder.AddServiceDefaults();
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-var app = builder.Build();
-
-app.MapDefaultEndpoints();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    builder.AddServiceDefaults();
+
+    // Add services to the container.
+
+    builder.Services.AddControllers();
+
 }
 
-app.UseHttpsRedirection();
+var app = builder.Build();
+{
+    app.MapDefaultEndpoints();
 
-app.UseAuthorization();
+    app.UseHttpsRedirection();
 
-app.MapControllers();
+    app.MapControllers();
 
-app.Run();
+    app.Run();
+}
+
+
